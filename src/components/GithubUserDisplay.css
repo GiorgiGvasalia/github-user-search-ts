@@ -1,0 +1,9 @@
+.user-display-container {
+    background-color: red;
+}
+
+.avatar {
+    width: 100px;
+    background-position: center;
+    border-radius: 50%;
+}

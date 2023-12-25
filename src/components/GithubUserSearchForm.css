@@ -1,0 +1,35 @@
+
+.input-field {
+ max-width: 100%;
+  padding: 1.5rem 0;
+  border: none;
+  outline: none;
+  text-align: left;
+  position: relative;
+  width: 600px;
+  padding-left: 3rem;
+  font-size: 18px;
+}
+
+input::placeholder {
+  color: #4b6a9b;
+  font-size: 18px;
+  font-weight: 400;
+  /* padding-left: 2.5rem; */
+}
+
+.submit-btn {
+  border-radius: 10px;
+  background: #0079ff;
+  border: none;
+  color: #fff;
+  padding: 1rem 1.3rem;
+  position: absolute;
+  transform: translate(-105%, 17%);
+}
+
+.search-icon {
+    position: absolute;
+    transform: translate(40%, 73%);
+    z-index: 3;
+}
