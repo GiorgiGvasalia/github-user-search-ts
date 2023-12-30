@@ -1,0 +1,13 @@
+.user-profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.info {
+  color: #4b6a9b;
+  font-size: 12px;
+  font-weight: 400;
+  padding-left: 12px;
+}

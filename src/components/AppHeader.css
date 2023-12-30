@@ -16,3 +16,9 @@
   font-size: 13px;
   font-weight: 700;
 }
+
+.theme-name-icon {
+  display: flex;
+  gap: 7px;
+  cursor: pointer;
+}

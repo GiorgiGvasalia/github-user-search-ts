@@ -5,7 +5,7 @@ const AppHeader = () => {
   return (
     <div className="header">
       <h1 className="header-name">devfinder</h1>
-      <div>
+      <div className="theme-name-icon">
         <span className="theme-name">Dark</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import GithubUserSearchForm from "./components/GithubUserSearchForm";
 import axios from "axios";
@@ -16,6 +16,8 @@ interface UserData {
   userLocation: string;
   userTwitter: string;
   userBlog: string;
+  githubBlogLink: string;
+  userWorkPlace: string;
 }
 
 function App() {
@@ -36,17 +38,19 @@ function App() {
             avatarUrl: data["avatar_url"],
             userName: data["login"],
             userFollowers: data["followers"].toString(),
-            userBio: data['bio'],
-            userJoinDate: data['created_at'],
-            userLocation: data['location'],
-            userBlog: data['blog'],
-            userRepos: data['public_repos'],
-            userFollowing: data['following'],
-            userTwitter: data['twitter_username']
+            userBio: data["bio"],
+            userJoinDate: data["created_at"],
+            userLocation: data["location"],
+            userBlog: data["blog"],
+            userRepos: data["public_repos"].toString(),
+            userFollowing: data["following"].toString(),
+            userTwitter: data["twitter_username"],
+            githubBlogLink: data["blog"],
+            userWorkPlace: data["company"],
           };
-          console.log(data);
-          console.log(newUserData);
+
           setUserData(newUserData);
+          console.log(data);
         }
       } catch (error) {
         console.error("Failed to fetch data");
@@ -77,7 +81,17 @@ function App() {
         onInputChange={handleInputChange}
         onSubmit={handleSubmit}
       />
-      {userData && <GithubUserDisplay userData={userData} />}
+      {userData && (
+        <GithubUserDisplay
+          userData={userData}
+          userProfile={{
+            twitterLink: userData.userTwitter || "",
+            userLocation: userData.userLocation || "",
+            githubBlogLink: userData.githubBlogLink || "",
+            userWorkPlace: userData.userWorkPlace,
+          }}
+        />
+      )}
     </div>
   );
 }
