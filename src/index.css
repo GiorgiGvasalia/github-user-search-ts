@@ -5,6 +5,10 @@
 }
 
 body {
-  background: #F6F8FF;
-  font-family: 'Space mono';
+  background: #f6f8ff;
+  font-family: "Space mono";
+}
+
+body.dark-theme {
+  background: #141d2f;
 }

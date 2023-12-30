@@ -1,8 +1,10 @@
 .application {
     max-width: 100%;
     width: 550px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin:0 auto;
+    height: 100vh;
 }

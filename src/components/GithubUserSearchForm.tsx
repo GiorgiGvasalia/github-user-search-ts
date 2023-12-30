@@ -40,6 +40,7 @@ const GithubUserSearchForm: React.FC<FormProps> = ({
          className="input-field"
          
          type="text"
+          autoFocus
          placeholder="Search Github username..."
           value={inputValue}
           onChange={(e) => {

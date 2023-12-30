@@ -24,6 +24,19 @@ function App() {
   const [inputValue, setInputValue] = useState<string>("");
   const [submit, setSubmit] = useState<boolean>(false);
   const [userData, setUserData] = useState<UserData | null>();
+  const [ theme, setTheme ] = useState<'light' | 'dark'>('light')
+
+  const handleThemeChange = () => {
+    setTheme((prevTheme) => prevTheme === 'light' ? 'dark': 'light')
+  }
+
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleString('en-US', options);
+    return `Joined ${formattedDate}`;
+  };
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -34,12 +47,13 @@ function App() {
           );
 
           const data = await response.data;
+          
           const newUserData: UserData = {
             avatarUrl: data["avatar_url"],
             userName: data["login"],
             userFollowers: data["followers"].toString(),
             userBio: data["bio"],
-            userJoinDate: data["created_at"],
+            userJoinDate: formatDate(data["created_at"]),
             userLocation: data["location"],
             userBlog: data["blog"],
             userRepos: data["public_repos"].toString(),
@@ -75,7 +89,7 @@ function App() {
 
   return (
     <div className="application">
-      <AppHeader />
+      <AppHeader themeToggle={handleThemeChange} theme={theme}/>
       <GithubUserSearchForm
         inputValue={inputValue}
         onInputChange={handleInputChange}

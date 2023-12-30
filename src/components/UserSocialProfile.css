@@ -11,3 +11,11 @@
   font-weight: 400;
   padding-left: 12px;
 }
+
+@media (max-width: 500px){
+  .user-profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+  }
+}

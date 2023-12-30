@@ -77,7 +77,7 @@ const UserSocialProfile: React.FC<UserProfileInfo> = ({ userProfile }) => {
               fill="#4B6A9B"
             />
           </svg>
-          {!userProfile.githubBlogLink ? (
+          {!userProfile.githubBlogLink || '' ? (
             <span className="info">Not available</span>
           ) : (
             <span className="info">{userProfile.githubBlogLink}</span>
@@ -105,7 +105,7 @@ const UserSocialProfile: React.FC<UserProfileInfo> = ({ userProfile }) => {
               fill="#4B6A9B"
             />
           </svg>
-          {!userProfile.userLocation ? (
+          {!userProfile.userWorkPlace ? (
             <span className="info">Not available</span>
           ) : (
             <span className="info">{userProfile.userWorkPlace}</span>
