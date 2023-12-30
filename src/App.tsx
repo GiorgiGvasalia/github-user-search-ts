@@ -7,15 +7,21 @@ import AppHeader from "./components/AppHeader";
 
 interface UserData {
   avatarUrl: string;
-  userName: string;
   userFollowers: string;
+  userName: string;
+  userBio: string;
+  userJoinDate: string;
+  userFollowing: string;
+  userRepos: string;
+  userLocation: string;
+  userTwitter: string;
+  userBlog: string;
 }
 
 function App() {
   const [inputValue, setInputValue] = useState<string>("");
   const [submit, setSubmit] = useState<boolean>(false);
   const [userData, setUserData] = useState<UserData | null>();
-
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,16 +30,23 @@ function App() {
           const response = await axios.get(
             `https://api.github.com/users/${inputValue}`
           );
-  
+
           const data = await response.data;
-          const newData: UserData = {
-            avatarUrl: data['avatar_url'],
-            userName: data['login'],
-            userFollowers: data['followers'].toString()
+          const newUserData: UserData = {
+            avatarUrl: data["avatar_url"],
+            userName: data["login"],
+            userFollowers: data["followers"].toString(),
+            userBio: data['bio'],
+            userJoinDate: data['created_at'],
+            userLocation: data['location'],
+            userBlog: data['blog'],
+            userRepos: data['public_repos'],
+            userFollowing: data['following'],
+            userTwitter: data['twitter_username']
           };
-          console.log(data)
-          console.log(newData);
-          setUserData(newData);
+          console.log(data);
+          console.log(newUserData);
+          setUserData(newUserData);
         }
       } catch (error) {
         console.error("Failed to fetch data");
@@ -41,13 +54,11 @@ function App() {
         setSubmit(false);
       }
     };
-  
+
     if (submit) {
       fetchUser();
     }
   }, [inputValue, submit]);
-  
-
 
   const handleInputChange = (value: string) => {
     setInputValue(value);
@@ -60,13 +71,13 @@ function App() {
 
   return (
     <div className="application">
-     {/* <AppHeader /> */}
+      <AppHeader />
       <GithubUserSearchForm
         inputValue={inputValue}
         onInputChange={handleInputChange}
         onSubmit={handleSubmit}
       />
-     {userData && <GithubUserDisplay userData={userData} />}
+      {userData && <GithubUserDisplay userData={userData} />}
     </div>
   );
 }

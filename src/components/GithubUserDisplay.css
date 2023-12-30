@@ -1,9 +1,61 @@
 .user-display-container {
-    background-color: red;
+  border-radius: 15px;
+  background: #fefefe;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+  margin-top: 20px;
+  padding: 40px;
+  display: flex;
+  gap: 1rem;
 }
 
 .avatar {
-    width: 100px;
-    background-position: center;
-    border-radius: 50%;
+  width: 85px;
+  height: 85px;
+  background-position: center;
+  border-radius: 50%;
+  display: block;
+}
+
+.social-activity-and-repos {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  background: #f6f8ff;
+  margin-top: 2rem;
+}
+
+.basic-info {
+  display: inline-block;
+}
+
+.username {
+  color: #2b3442;
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 1.5rem;
+}
+
+.create-date {
+  color: #697c9a;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.bio {
+  color: #4b6a9b;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.activity-label {
+  color: #4b6a9b;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.activity {
+  color: #2b3442;
+  font-size: 19px;
+  font-weight: 700;
+  text-transform: uppercase;
 }

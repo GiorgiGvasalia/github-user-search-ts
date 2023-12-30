@@ -1,11 +1,12 @@
 import React from "react";
+import './AppHeader.css'
 
 const AppHeader = () => {
   return (
-    <div style={{display: "flex", justifyContent: 'space-between', maxWidth: '100%'}}>
-      <h1>devfinder</h1>
+    <div className="header">
+      <h1 className="header-name">devfinder</h1>
       <div>
-        <label>Dark</label>
+        <span className="theme-name">Dark</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.header-name {
+  color: #222731;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.theme-name {
+  color: #697c9a;
+  font-size: 13px;
+  font-weight: 700;
+}
